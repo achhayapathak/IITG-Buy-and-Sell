@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell</title>
+</head>
+<body>
+    <center>
+        <header>
+            <br>
+            <h1 class="font-weight-bold text-xl"><i>IITG Buy and Sell</i></h1>
+            <br>
+    
+        </header>
+            <form method="post" action="register_data.php">
+    
+                <br><br>
+          <label for="fname">Product Name:</label>
+          <input type="text" id="fname" name="fname" required pattern="[A-Za-z]{1,}" title="Must be alphabetic"><br><br>
+          <label for="lname">Description:</label>
+          <input type="text" class="border-2px"  id="lname" name="lname" pattern="[A-Za-z.]{1,}" title="Must be alphabetic"><br><br>
+    
+          
+          <label for="dob">Date of Purchase:</label>
+          <input type="date" id="dob" name="dob" min="1900-01-01"><br><br>
+          
+          <label for="Phone">Price:</label>
+          <input type="text" id="Phone" name="Phone"><br><br>
+        
+            <label for="Forgot_text">Upload Image:</label>
+            <input type="file" id="Forgot_text" name="Forgot_text"><br><br><br>
+    
+          <button class="btn-primary btn-lg border border-dark rounded">Submit</button>
+          <!-- <input type="submit" value="Reset"> -->
+          <br><br>
+          
+        </form>
+        </center>
+</body>
+</html>
