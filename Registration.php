@@ -1,3 +1,56 @@
+
+<?php
+    if(isset($_POST['fname'])) {
+        $server = "localhost";
+        $username = "root";
+        $password = "";
+    
+        $con = mysqli_connect($server, $username, $password);
+    
+        if(!$con) {
+            die("connection to this database failed due to" . mysqli_connect_error());
+        }
+        // echo "Success connecting to the db";
+    
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $dob = $_POST['dob'];
+        $email = $_POST['email'];
+        $phone = $_POST['Phone'];
+        $pswd = $_POST['pswd'];
+        $Forgot_text = $_POST['Forgot_text'];
+    
+        // $sql = "INSERT INTO `Form`.`details` (`name`, `age`, `gender`, `phone`, `email`, `description`) VALUES ('$name', '$age', '$gender', '$phone', '$email', '$description');";
+        // echo $sql;
+        $sql = "INSERT INTO `BuySell`.`User` (`fname`, `lname`, `dob`, `email`, `phone`) VALUES ('$fname', '$lname', '$dob', '$email', '$phone');";
+        $sql2 = "INSERT INTO `BuySell`.`login` (`email`, `pswd`, `Forgot_text`) VALUES ('$email', '$pswd', '$Forgot_text');";
+    
+        if($con->query($sql2) == true) {
+            // echo "Successfully Inserted";
+        }
+        else {
+            echo "ERROR: $sql2 <br> $con->error";
+        }
+
+        if($con->query($sql) == true) {
+            // echo "Successfully Inserted";
+        }
+        else {
+            echo "ERROR: $sql <br> $con->error";
+        }
+    
+        $con->close();
+    }
+
+    // INSERT INTO `User` (`User_id`, `fname`, `lname`, `dob`, `email`, `phone`) VALUES ('1', 'Gaurav', 'Gandhi', '2021-10-07', 'gauravgandhi@iitg.ac.in', '8295380050');
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +58,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
+    
+    <link rel="stylesheet" href="Home.css"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -15,7 +70,7 @@
         <br>
 
     </header>
-        <form method="post" action="register_data.php">
+        <form method="post" action="Registration.php">
 
             <br><br>
 	  <label for="fname">First name:</label>
@@ -44,7 +99,7 @@
         <label for="Forgot_text">What is your pets name:</label>
         <input type="text" id="Forgot_text" name="Forgot_text"><br><br><br>
 
-	  <button class="btn-primary btn-lg border border-dark rounded">Submit</button>
+        <button class="btn">Submit</button>
 	  <!-- <input type="submit" value="Reset"> -->
       <br><br>
       
@@ -53,3 +108,4 @@
     </center>
 </body>
 </html>
+
